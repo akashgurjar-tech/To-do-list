@@ -92,3 +92,7 @@ li button {
 li button:hover {
   background-color: #b71c1c;
 }
+#invalid{
+  color: #b71c1c;
+  font-size: 15px;
+}

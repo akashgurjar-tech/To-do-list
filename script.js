@@ -5,10 +5,17 @@ const todoList=document.getElementById('todo-list');
 
 let tasks= JSON.parse(localStorage.getItem('tasks')) || [];
 tasks.forEach((task)=>renderTask(task));
-addTask.addEventListener('click',()=>{
-    if(todoInput==="") return;
-    const input=todoInput.value.trim();
+
+    const invalid=document.getElementById("invalid");
     
+
+addTask.addEventListener('click',()=>{
+    
+    const input=todoInput.value.trim();
+    if(input===""){
+      invalid.textContent= "enter a valid input";
+      return;
+    }
     newTask={
         id:Date.now(),
         text:input,
@@ -45,4 +52,7 @@ function saveTasks(){
     localStorage.setItem("tasks",JSON.stringify(tasks));
 
 }
+todoInput.addEventListener('input',()=>{
+    invalid.textContent="";
+})
 });
